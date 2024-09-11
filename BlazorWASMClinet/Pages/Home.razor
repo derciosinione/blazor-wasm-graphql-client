@@ -1,0 +1,45 @@
+﻿@* @using BlazorWASMClinet.Interface *@
+@using BlazorWASMClinet.Interface
+@inject IAuthService AuthService
+@inject Blazored.LocalStorage.ILocalStorageService LocalStorage
+
+@page "/"
+
+
+<PageTitle>Home</PageTitle>
+
+<input @bind="username" placeholder="Username"/>
+<input @bind="password" type="password" placeholder="Password"/>
+<button @onclick="Login">Login</button>
+
+<p>@message</p>
+
+@code
+{
+    private string username = "brito@tracosespacos.pt";
+    private string password = "12345678";
+    private string message;
+    
+    private async Task Login()
+    {
+        try
+        {
+            var result = await AuthService.LoginAsync(username,password);
+
+            if (string.IsNullOrEmpty(result.Token))
+            {
+                message = "Login failed!";
+                return;
+            }
+           
+            await LocalStorage.SetItemAsync("jwt_token", result.Token);  
+            Console.WriteLine(result.Email);
+            message = "Login successful!";
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            message = "Login failed!";
+        }
+    }
+}
