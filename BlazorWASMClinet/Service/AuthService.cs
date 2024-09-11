@@ -16,16 +16,10 @@ public class AuthService : IAuthService
     public async Task<LoginData> LoginAsync(string email, string password,
         CancellationToken cancellationToken = default)
     {
-    
-        var result = await _client.MakeLogin.ExecuteAsync(email, password, cancellationToken);
+        var result = await _client.UserLogin.ExecuteAsync(email, password, cancellationToken);
       
-        if (result.IsErrorResult())
-        {
-            throw new Exception(result.Errors[0].Message);
-        }
+        result.EnsureNoErrors();
         
-        // result.EnsureNoErrors();
-
         var data = result.Data!.Login;
         
         var token = new LoginData

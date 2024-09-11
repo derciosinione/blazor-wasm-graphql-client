@@ -1,4 +1,4 @@
-mutation MakeLogin($email: String!, $password: String!) {
+mutation UserLogin($email: String!, $password: String!) {
     login(email: $email, password: $password) {
         id
         email
@@ -27,3 +27,5 @@ fragment UserFields on UserType {
     createdAt
     updatedAt
 }
+
+
