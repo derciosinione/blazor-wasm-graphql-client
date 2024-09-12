@@ -1,4 +1,4 @@
-﻿namespace WebApiGraphQLClient.Request;
+﻿namespace BlazorWASMClient.Application.Contracts.Request;
 
 public class LoginRequest
 {

@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWASMClinet", "BlazorWASMClinet\BlazorWASMClinet.csproj", "{21317461-931E-4642-B96D-434B48D3A923}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWASMClient", "BlazorWASMClient\BlazorWASMClient.csproj", "{21317461-931E-4642-B96D-434B48D3A923}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,4 +1,4 @@
-﻿namespace WebApiGraphQLClient.Response;
+﻿namespace BlazorWASMClient.Application.Contracts.Response;
 
 public class LoginResponse
 {

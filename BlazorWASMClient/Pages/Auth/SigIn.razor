@@ -1,9 +1,13 @@
-﻿@* @using BlazorWASMClinet.Interface *@
-@using BlazorWASMClinet.Interface
 @inject IAuthService AuthService
-@inject Blazored.LocalStorage.ILocalStorageService LocalStorage
+@inject NavigationManager Navigation
 
 @page "/"
+@using BlazorWASMClient.Application.Repositories.Interface
+@layout LoginLayout
+
+<PageTitle>Home</PageTitle>
+
+<h3>SigIn</h3>
 
 
 <PageTitle>Home</PageTitle>
@@ -31,10 +35,10 @@
                 message = "Login failed!";
                 return;
             }
-           
-            await LocalStorage.SetItemAsync("jwt_token", result.Token);  
+            
             Console.WriteLine(result.Email);
             message = "Login successful!";
+            Navigation.NavigateTo("/op/");
         }
         catch (Exception e)
         {
@@ -43,3 +47,4 @@
         }
     }
 }
+
